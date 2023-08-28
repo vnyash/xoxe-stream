@@ -3,9 +3,10 @@ from flask_socketio import SocketIO, emit, join_room
 import platform
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "xoxe-streamming"
+app.config['SECRET_KEY'] = "xoxe streamming"
 
-socketio = SocketIO(app)
+socketio = SocketIO(app,cors_allowed_origins='*' )
+
 
 users_in_room = {}
 rooms_sid = {}
