@@ -3,7 +3,7 @@ from flask_socketio import SocketIO, emit, join_room
 import platform
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = "wubba lubba dub dub"
+app.config['SECRET_KEY'] = "xoxe-streamming"
 
 socketio = SocketIO(app)
 
