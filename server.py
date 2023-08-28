@@ -23,6 +23,24 @@ def join():
     return render_template("join.html", room_id=room_id, display_name=session[room_id]["name"], mute_audio=session[room_id]["mute_audio"], mute_video=session[room_id]["mute_video"])
 
 
+@app.route("/test", methods=["GET", "POST"])
+def test():
+    if request.method == "POST":
+        room_id="21"
+        print(request.form.keys())
+        display_name = request.form['display_name']
+        room_id = request.form['room_id']
+        # mute_video = request.form['mute_video']        
+        session[room_id] = {"name": display_name, "mute_audio":0, "mute_video":0}
+        print(session)
+        response = jsonify({"ok":True})
+        response.headers.add('Access-Control-Allow-Origin', '*')
+        return response
+
+
+
+
+
 @socketio.on("connect")
 def on_connect():
     sid = request.sid
